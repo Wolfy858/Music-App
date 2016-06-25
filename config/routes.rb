@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   resources :users
 
-  resources :bands
+  resources :bands do
+    resources :albums, only: [:new]
+  end
+
+  resources :albums, only: [:create, :destroy, :edit, :show, :update]
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

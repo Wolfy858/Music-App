@@ -1,0 +1,27 @@
+<h2> New <%= @band.name %> Album!</h2>
+
+ <% if @album.errors.any? %>
+  <ul>
+    <% @album.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+<%= form_for @album do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br>
+
+ <%= select("album", "band_id", Band.all.collect {|b| [b.name, b.id]}, selected: @band.id ) %>
+ <br>
+
+ <%= f.label :live %>
+ <%= radio_button("album", "category", "live")  %>
+ <%= f.label :studio %>
+ <%= radio_button("album", "category", "studio") %><br>
+
+ <%= f.label :year %>
+ <%= f.number_field :year %><br>
+
+ <%= f.submit "Create Album" %>
+<% end %>

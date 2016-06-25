@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160625214640) do
+ActiveRecord::Schema.define(version: 20160625222507) do
+
+  create_table "albums", force: :cascade do |t|
+    t.integer  "band_id",    null: false
+    t.string   "category",   null: false
+    t.integer  "year",       null: false
+    t.string   "title",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bands", force: :cascade do |t|
     t.string   "name"
