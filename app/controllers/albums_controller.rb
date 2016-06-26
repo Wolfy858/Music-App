@@ -20,6 +20,29 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
+  def edit
+    @album = Album.find(params[:id])
+    @band = @album.band
+  end
+
+  def update
+    @album = Album.find(params[:id])
+
+    if @album.update(album_params)
+      redirect_to album_path(@album)
+    else
+      @band = @album.band
+      render "edit"
+    end
+  end
+
+  def destroy
+    @album = Album.find(params[:id])
+    band = @album.band
+    @album.destroy
+    redirect_to band_path(band)
+  end
+
   def album_params
     params.require(:album).permit(:title, :band_id, :category, :year)
   end

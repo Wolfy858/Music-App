@@ -1,5 +1,6 @@
 <h2><%= @band.name %></h2>
 
+<p>Albums:</p>
 <ul>
   <% @band.albums.each do |album| %>
     <li><%= link_to album.title , album_path(album) %></li>
@@ -10,6 +11,8 @@
 
 <ul>
   <li><%= link_to "New album", new_band_album_path(@band) %></li>
+  <li><%= link_to "Edit Band", edit_band_path(@band) %></li>
+  <li><%= link_to "Delete Band", band_path(@band), method: :delete %>
 </ul>
 
 

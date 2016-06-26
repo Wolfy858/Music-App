@@ -1,1 +1,19 @@
 <h2><%= @track.title %></h2>
+
+
+<p style="white-space: pre-wrap;"><%= @track.lyrics %></p>
+
+
+
+<h3> New Note</h3>
+
+
+
+<h4> Links</h4>
+
+<ul>
+  <li><%= link_to "Edit Track", edit_track_path(@track) %></li>
+  <li><%= link_to "Delete Track", track_path(@track), method: :delete %></li>
+</ul>
+
+

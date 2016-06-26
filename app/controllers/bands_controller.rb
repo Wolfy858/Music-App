@@ -21,6 +21,26 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
   end
 
+  def edit
+    @band = Band.find(params[:id])
+  end
+
+  def update
+    @band = Band.find(params[:id])
+
+    if @band.update(band_params)
+      redirect_to band_path(@band)
+    else
+      render "edit"
+    end
+  end
+
+  def destroy
+    @band = Band.find(params[:id])
+    @band.destroy
+    redirect_to bands_path
+  end
+
 
   def band_params
     params.require(:band).permit(:name)

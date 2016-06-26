@@ -1,16 +1,3 @@
 <h2> New Band!</h2>
 
-  <% if @band.errors.any? %>
-  <ul>
-    <% @band.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-  <% end %>
-
-<%= form_for @band do |f| %>
-  <%= f.label :name %>:
-  <%= f.text_field :name %><br>
-
-  <%= f.submit "Create Band" %>
-<% end %>
+<%= render "band_form" %>
