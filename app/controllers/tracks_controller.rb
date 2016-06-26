@@ -31,6 +31,7 @@ class TracksController < ApplicationController
     if @track.update(track_params)
       redirect_to track_path(@track)
     else
+      @album = @track.album
       render "edit"
     end
   end
