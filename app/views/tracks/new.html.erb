@@ -1,0 +1,34 @@
+<h2> New <%= @album.title %> Track </h2>
+
+
+<% if @track.errors.any? %>
+  <ul>
+    <% @track.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @track do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+
+  <%= select("track", "album_id", Album.all.collect {|b| [b.title, b.id]}, selected: @album.id) %>
+  <br>
+
+  <%= f.label :track_number %>
+  <%= f.number_field :track_number %>
+  <br>
+
+  <%= f.label :standard %>
+  <%= radio_button("track", "category", "standard") %>
+  <%= f.label :bonus %>
+  <%= radio_button("track", "category", "bonus") %>
+  <br>
+  <%= f.label :lyrics %>
+  <%= f.text_area :lyrics %>
+
+  <%= f.submit "Create Track" %>
+<% end %>
+
