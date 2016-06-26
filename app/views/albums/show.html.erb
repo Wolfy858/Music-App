@@ -12,5 +12,6 @@
   <li><%= link_to "New Track", new_album_track_path(@album) %></li>
   <li><%= link_to "Edit Album", edit_album_path(@album) %>
   <li><%= link_to "Delete Album", album_path(@album), method: :delete %>
+  <li><%= link_to @album.band.name, band_path(@album.band) %>
 </ul>
 
