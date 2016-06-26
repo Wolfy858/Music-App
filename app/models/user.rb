@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  has_many :notes, foreign_key: :author_id
+
   validates :email, :username, presence: true
   validates :email, uniqueness: true
 

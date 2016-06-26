@@ -3,10 +3,10 @@
 
 <p style="white-space: pre-wrap;"><%= @track.lyrics %></p>
 
-
+<%= render partial: "notes/note", collection: @track.notes %>
 
 <h3> New Note</h3>
-
+  <%= render partial: "notes/form" %>
 
 
 <h4> Links</h4>

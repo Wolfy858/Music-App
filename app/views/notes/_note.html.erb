@@ -1,0 +1,8 @@
+<div class="note">
+  <p><%= note.content %></p>
+  <p>Authored by: <%= note.author.username %></p>
+  <% if current_user == note.author %>
+    <%= button_to "Destroy note!", note_path(note),method: :delete %>
+  <% end %>
+</div>
+

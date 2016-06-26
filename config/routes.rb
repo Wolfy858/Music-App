@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   resources :tracks, only: [:create, :destroy, :edit, :show, :update]
 
+  resources :notes, only: [:create, :destroy]
+
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
